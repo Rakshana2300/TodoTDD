@@ -1,5 +1,5 @@
 # Running the Server
-To run the server use the command json-server --watch db.json --port 3000
+To run the server use the command **json-server --watch db.json --port 3000**
 
 # Getting Started with Create React App
 
