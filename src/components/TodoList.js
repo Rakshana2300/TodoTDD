@@ -24,12 +24,15 @@ function TodoList(props) {
     if(todo.completed && props.showAll){
       return (
           <div className='todo-list' key={todo.id}>
-              <div className='ui three column very relaxed grid'>
+              <div className='ui four column very relaxed grid'>
                   <div className='column'>
-                      <p className='crossed-line item' onClick={(event)=>completedTask(todo,event)}>{todo.description}</p>
+                      <p className='crossed-line item'>{todo.description}</p>
                   </div>
                   <div className='column'>
                     <Edit className = 'edit' todo = {todo} onEdit = {editTodo}/>
+                  </div>
+                  <div className='column'>
+                      <button className = 'btn btn-primary complete' type='submit' onClick={(event)=>completedTask(todo,event)}>Complete</button>
                   </div>
                   <div className='column'>
                       <button className = 'btn btn-danger delete' type='submit' onClick = {()=>removeTodo(todo.id)}>Delete</button>
@@ -41,13 +44,16 @@ function TodoList(props) {
   else{
     return (
         <div className='todo-list' key={todo.id}>
-            <div className='ui three column very relaxed grid'>
+            <div className='ui four column very relaxed grid'>
                 <div className='column'>
                     <p className='item' onClick={(event)=>completedTask(todo,event)}>{todo.description}</p>
                 </div>
                 <div className='column'>
                     <Edit className = 'edit' todo = {todo} onEdit = {editTodo}/>
                 </div>
+                {props.showAll && <div className='column'>
+                    <button className = 'btn btn-primary complete' type='submit' onClick={(event)=>completedTask(todo,event)}>Complete</button>
+                </div>}
                 <div className='column'>
                     <button className = 'btn btn-danger delete' type='submit' onClick = {()=>removeTodo(todo.id)}>Delete</button>
                 </div>
